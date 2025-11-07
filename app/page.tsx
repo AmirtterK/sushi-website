@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { motion ,easeOut } from "framer-motion";
+import { motion, easeOut } from "framer-motion";
 import { Menu, X, ChevronRight, Phone, Clock, MapPin } from "lucide-react";
 
 type MenuCategory =
@@ -28,150 +28,20 @@ export default function NewPage() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
- const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.8, ease: easeOut },
-  },
-};
+  const fadeUp = {
+    hidden: { opacity: 0, y: 40 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: easeOut },
+    },
+  };
 
-const fadeIn = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { duration: 1, ease: easeOut },
-  },
-};
-  const menuData: Record<
-    MenuCategory,
-    {
-      title: string;
-      image: string;
-      items: Array<{ name: string; pieces: number | null; price: number }>;
-    }
-  > = {
-    nigiri: {
-      title: "Nigiri",
-      image:
-        "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=800",
-      items: [
-        { name: "Crevettes", pieces: 2, price: 700 },
-        { name: "Saumon", pieces: 2, price: 600 },
-        { name: "Mango", pieces: 2, price: 500 },
-      ],
-    },
-    uramaki: {
-      title: "Uramaki",
-      image:
-        "https://images.unsplash.com/photo-1617196035154-b0f6da440763?w=800",
-      items: [
-        { name: "Crevettes", pieces: 4, price: 850 },
-        { name: "Saumon", pieces: 4, price: 850 },
-        { name: "Surimi", pieces: 4, price: 800 },
-        { name: "Chiken", pieces: 4, price: 700 },
-      ],
-    },
-    futomaki: {
-      title: "Futomaki",
-      image: "https://images.unsplash.com/photo-1553621042-f6e147245754?w=800",
-      items: [
-        { name: "Crevettes", pieces: 4, price: 900 },
-        { name: "Saumon", pieces: 4, price: 900 },
-        { name: "Surimi", pieces: 4, price: 850 },
-        { name: "Chiken", pieces: 4, price: 750 },
-        { name: "Végé", pieces: 4, price: 750 },
-      ],
-    },
-    maki: {
-      title: "Maki",
-      image:
-        "https://images.unsplash.com/photo-1580822184713-fc5400e7fe10?w=800",
-      items: [
-        { name: "Crevettes", pieces: 6, price: 800 },
-        { name: "Saumon", pieces: 6, price: 800 },
-        { name: "Surimi", pieces: 6, price: 700 },
-        { name: "Avocat", pieces: 6, price: 700 },
-      ],
-    },
-    crispy: {
-      title: "Crispy",
-      image:
-        "https://images.unsplash.com/photo-1617196035165-f6c0c16d4b86?w=800",
-      items: [
-        { name: "Crevettes", pieces: 4, price: 950 },
-        { name: "Saumon", pieces: 4, price: 950 },
-        { name: "Surimi", pieces: 4, price: 900 },
-        { name: "Chiken", pieces: 4, price: 800 },
-        { name: "Végé", pieces: 4, price: 800 },
-      ],
-    },
-    fusion: {
-      title: "Roll Salmo Fusion",
-      image:
-        "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=800",
-      items: [
-        { name: "Salamon roll", pieces: 6, price: 1200 },
-        { name: "Frech salamon", pieces: 4, price: 1000 },
-      ],
-    },
-    shimpry: {
-      title: "Roll Shimpry Touch",
-      image:
-        "https://images.unsplash.com/photo-1617196035154-b0f6da440763?w=800",
-      items: [
-        { name: "Tiger roll", pieces: 4, price: 1100 },
-        { name: "Dragon roll", pieces: 4, price: 1100 },
-      ],
-    },
-    signature: {
-      title: "Roll Signature",
-      image:
-        "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=800",
-      items: [
-        { name: "Crasy roll", pieces: 4, price: 1300 },
-        { name: "Golden roll", pieces: 4, price: 1100 },
-        { name: "Tasty crousty", pieces: 4, price: 700 },
-      ],
-    },
-    tempura: {
-      title: "Tempura",
-      image:
-        "https://images.unsplash.com/photo-1568096889942-6eedde686635?w=800",
-      items: [
-        { name: "Creuvette", pieces: 3, price: 1800 },
-        { name: "Chiken", pieces: 3, price: 700 },
-      ],
-    },
-    nems: {
-      title: "Nems",
-      image:
-        "https://images.unsplash.com/photo-1626804475297-41608ea09aeb?w=800",
-      items: [
-        { name: "Crevettes", pieces: 3, price: 800 },
-        { name: "Chiken", pieces: 3, price: 600 },
-      ],
-    },
-    nouilles: {
-      title: "Nouilles",
-      image:
-        "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=800",
-      items: [
-        { name: "Crevettes", pieces: null, price: 1400 },
-        { name: "Chiken", pieces: null, price: 1000 },
-      ],
-    },
-    boissons: {
-      title: "Boissons",
-      image:
-        "https://images.unsplash.com/photo-1437418747212-8d9709afab22?w=800",
-      items: [
-        { name: "Soda/Jus (1l)", pieces: null, price: 150 },
-        { name: "Soda/Jus (33cl)", pieces: null, price: 100 },
-        { name: "Eau (1.5l)", pieces: null, price: 50 },
-        { name: "Eau (0.5l)", pieces: null, price: 30 },
-      ],
+  const fadeIn = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: { duration: 1, ease: easeOut },
     },
   };
 
@@ -180,9 +50,7 @@ const fadeIn = {
       {/* Navbar */}
       <nav
         className={`fixed w-full z-50 transition-all duration-500 ${
-          scrolled
-            ? "bg-black/90 border-b border-red-800/40"
-            : "bg-transparent"
+          scrolled ? "bg-black/90 border-b border-red-800/40" : "bg-transparent"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 flex justify-between items-center h-16">
@@ -317,7 +185,7 @@ const fadeIn = {
               <motion.div
                 key={index}
                 whileHover={{ scale: 1.03 }}
-                className="bg-gray-900/60 p-6 rounded-xl border border-gray-800 hover:border-red-600 transition-all"
+                className=" p-6 rounded-xl border border-gray-800 hover:border-red-600 transition-all"
               >
                 <div className="flex justify-between items-start">
                   <div>
@@ -342,7 +210,7 @@ const fadeIn = {
       {/* About Section */}
       <motion.section
         id="about"
-        className="py-20 px-4 bg-gradient-to-b from-black to-gray-900 text-center"
+        className="py-20 px-4 text-center"
         variants={fadeUp}
         initial="hidden"
         whileInView="show"
@@ -359,7 +227,7 @@ const fadeIn = {
       {/* Contact Section */}
       <motion.section
         id="contact"
-        className="py-20 px-4 bg-gradient-to-b from-gray-900 to-black text-center"
+        className="py-20 px-4  text-center"
         variants={fadeUp}
         initial="hidden"
         whileInView="show"
@@ -399,3 +267,122 @@ const fadeIn = {
     </div>
   );
 }
+const menuData: Record<
+  MenuCategory,
+  {
+    title: string;
+    image: string;
+    items: Array<{ name: string; pieces: number | null; price: number }>;
+  }
+> = {
+  nigiri: {
+    title: "Nigiri",
+    image: "/menu/nigiri.jpeg",
+    items: [
+      { name: "Crevettes", pieces: 2, price: 700 },
+      { name: "Saumon", pieces: 2, price: 600 },
+      { name: "Mango", pieces: 2, price: 500 },
+    ],
+  },
+  uramaki: {
+    title: "Uramaki",
+    image: "https://images.unsplash.com/photo-1617196035154-b0f6da440763?w=800",
+    items: [
+      { name: "Crevettes", pieces: 4, price: 850 },
+      { name: "Saumon", pieces: 4, price: 850 },
+      { name: "Surimi", pieces: 4, price: 800 },
+      { name: "Chiken", pieces: 4, price: 700 },
+    ],
+  },
+  futomaki: {
+    title: "Futomaki",
+    image: "/menu/futomaki.jpeg",
+    items: [
+      { name: "Crevettes", pieces: 4, price: 900 },
+      { name: "Saumon", pieces: 4, price: 900 },
+      { name: "Surimi", pieces: 4, price: 850 },
+      { name: "Chiken", pieces: 4, price: 750 },
+      { name: "Végé", pieces: 4, price: 750 },
+    ],
+  },
+  maki: {
+    title: "Maki",
+    image: "/menu/maki.jpeg",
+    items: [
+      { name: "Crevettes", pieces: 6, price: 800 },
+      { name: "Saumon", pieces: 6, price: 800 },
+      { name: "Surimi", pieces: 6, price: 700 },
+      { name: "Avocat", pieces: 6, price: 700 },
+    ],
+  },
+  crispy: {
+    title: "Crispy",
+    image: "https://images.unsplash.com/photo-1617196035165-f6c0c16d4b86?w=800",
+    items: [
+      { name: "Crevettes", pieces: 4, price: 950 },
+      { name: "Saumon", pieces: 4, price: 950 },
+      { name: "Surimi", pieces: 4, price: 900 },
+      { name: "Chiken", pieces: 4, price: 800 },
+      { name: "Végé", pieces: 4, price: 800 },
+    ],
+  },
+  fusion: {
+    title: "Roll Salmo Fusion",
+    image: "/menu/roll-salmo.jpeg",
+    items: [
+      { name: "Salamon roll", pieces: 6, price: 1200 },
+      { name: "Frech salamon", pieces: 4, price: 1000 },
+    ],
+  },
+  shimpry: {
+    title: "Roll Shimpry Touch",
+    image: "/menu/roll-shimpry.jpeg",
+    items: [
+      { name: "Tiger roll", pieces: 4, price: 1100 },
+      { name: "Dragon roll", pieces: 4, price: 1100 },
+    ],
+  },
+  signature: {
+    title: "Roll Signature",
+    image: "/menu/roll-signature.jpeg",
+    items: [
+      { name: "Crasy roll", pieces: 4, price: 1300 },
+      { name: "Golden roll", pieces: 4, price: 1100 },
+      { name: "Tasty crousty", pieces: 4, price: 700 },
+    ],
+  },
+  tempura: {
+    title: "Tempura",
+    image: "/menu/tempura.jpeg",
+    items: [
+      { name: "Creuvette", pieces: 3, price: 1800 },
+      { name: "Chiken", pieces: 3, price: 700 },
+    ],
+  },
+  nems: {
+    title: "Nems",
+    image: "https://images.unsplash.com/photo-1626804475297-41608ea09aeb?w=800",
+    items: [
+      { name: "Crevettes", pieces: 3, price: 800 },
+      { name: "Chiken", pieces: 3, price: 600 },
+    ],
+  },
+  nouilles: {
+    title: "Nouilles",
+    image: "/menu/nouilles.jpeg",
+    items: [
+      { name: "Crevettes", pieces: null, price: 1400 },
+      { name: "Chiken", pieces: null, price: 1000 },
+    ],
+  },
+  boissons: {
+    title: "Boissons",
+    image: "/menu/boissons.jpeg",
+    items: [
+      { name: "Soda/Jus (1l)", pieces: null, price: 150 },
+      { name: "Soda/Jus (33cl)", pieces: null, price: 100 },
+      { name: "Eau (1.5l)", pieces: null, price: 50 },
+      { name: "Eau (0.5l)", pieces: null, price: 30 },
+    ],
+  },
+};
