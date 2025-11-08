@@ -44,9 +44,13 @@ export default function NewPage() {
   };
 
   return (
-    <div className="bg-black text-white min-h-screen font-sans">
+    <div className="bg-black text-white min-h-screen font-sans overflow-x-hidden scroll-smooth">
       <style jsx global>{`
         @import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;900&family=Noto+Serif+JP:wght@200;300;400;500;600;700;900&family=Montserrat:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@300;400;600;700&display=swap");
+
+        html {
+          scroll-behavior: smooth;
+        }
       `}</style>
       {/* Navbar */}
       <nav
@@ -66,10 +70,12 @@ export default function NewPage() {
             HIKARI SUSHI
           </h1>
           <button
-            className="md:hidden"
+            className="md:hidden transition-transform duration-300"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            {isMenuOpen ? <X /> : <Menu />}
+            <div className="transition-transform duration-300">
+              {isMenuOpen ? <X className="rotate-90" /> : <Menu />}
+            </div>
           </button>
           <div className="hidden md:flex space-x-8">
             {["home", "menu", "about", "contact"].map((link) => (
@@ -78,7 +84,7 @@ export default function NewPage() {
                 href={`#${link}`}
                 className="uppercase tracking-wide hover:text-orange-500 transition"
                 style={{
-                  fontFamily: "Montserrat, sans-serif",
+                  fontFamily: "Cinzel, sans-serif",
                   fontWeight: "500",
                   letterSpacing: "0.05em",
                 }}
@@ -88,19 +94,26 @@ export default function NewPage() {
             ))}
           </div>
         </div>
-        {isMenuOpen && (
-          <div className="md:hidden bg-black/95 p-4 space-y-3 text-center">
+        <div
+          className={`md:hidden bg-black/95 overflow-hidden transition-all duration-300 ease-in-out ${
+            isMenuOpen ? "max-h-60 opacity-100" : "max-h-0 opacity-0"
+          }`}
+        >
+          <div className="p-4 space-y-3 text-center">
             {["home", "menu", "about", "contact"].map((link) => (
               <a
                 key={link}
                 href={`#${link}`}
                 className="block uppercase hover:text-orange-500 transition"
+                style={{
+                  fontFamily: "Cinzel, serif",
+                }}
               >
                 {link}
               </a>
             ))}
           </div>
-        )}
+        </div>
       </nav>
 
       {/* Hero */}
@@ -293,9 +306,9 @@ export default function NewPage() {
                   whileHover={{ scale: 1.05, rotate: 2 }}
                   className={`${
                     index % 2 === 0 ? "order-3" : "order-1 md:order-1"
-                  } group relative w-56 h-56 md:w-64 md:h-64 flex-shrink-0`}
+                  } relative w-56 h-56 md:w-64 md:h-64 flex-shrink-0`}
                 >
-                  <div className="absolute inset-0 rounded-full border-4 border-dashed border-white/30 group-hover:animate-[spin_20s_linear_infinite]" />
+                  <div className="absolute inset-0 rounded-full border-4 border-dashed border-white/30 animate-[spin_20s_linear_infinite]" />
                   <div className="absolute inset-3 rounded-full overflow-hidden bg-white">
                     <img
                       src={item.image || menuData[activeCategory].image}
@@ -388,7 +401,7 @@ export default function NewPage() {
                 fontWeight: "400",
               }}
             >
-              open all week <br /> 12h to 23h !
+              open all week <br /> 12h to 23h
             </p>
           </motion.div>
           <motion.div
