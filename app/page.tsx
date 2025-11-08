@@ -467,7 +467,7 @@ const menuData: Record<
         price: 1600,
         description: "Surimi Avocat Fromage",
       },
-      {
+      { 
         name: "Tiger Roll",
         pieces: 8,
         price: 1600,
