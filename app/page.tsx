@@ -508,7 +508,7 @@ const menuData: Record<
   signature: {
     title: "Signature",
     image:
-      "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+      "https://lady-sushi.fr/app/uploads/2021/10/SAUMON-AVOCAT-FROMAGE.png",
     items: [
       { name: "Saumon Avocat Fromage", pieces: 8, price: 2000 },
       { name: "Saumon Fromage", pieces: 8, price: 2000 },
