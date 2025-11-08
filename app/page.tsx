@@ -861,7 +861,7 @@ const menuData: Record<
         pieces: null,
         price: 250,
         image:
-          "https://images.unsplash.com/photo-1523677011781-c91d1bbe2f9d?ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+          "https://plus.unsplash.com/premium_photo-1721780793069-5576631f1b46?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
       },
       {
         name: "Mojito Classic",
