@@ -306,9 +306,9 @@ export default function NewPage() {
                   whileHover={{ scale: 1.05, rotate: 2 }}
                   className={`${
                     index % 2 === 0 ? "order-3" : "order-1 md:order-1"
-                  } relative w-56 h-56 md:w-64 md:h-64 flex-shrink-0`}
+                  } group relative w-56 h-56 md:w-64 md:h-64 flex-shrink-0`}
                 >
-                  <div className="absolute inset-0 rounded-full border-4 border-dashed border-white/30 animate-[spin_20s_linear_infinite]" />
+                  <div className="absolute inset-0 rounded-full border-4 border-dashed border-white/30 group-hover:animate-[spin_20s_linear_infinite]" />
                   <div className="absolute inset-3 rounded-full overflow-hidden bg-white">
                     <img
                       src={item.image || menuData[activeCategory].image}
