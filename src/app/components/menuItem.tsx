@@ -103,7 +103,7 @@ export default function MenuItem({
 
       {/* Right Side - Image */}
       <motion.div
-        whileHover={{ scale: 1.05, rotate: 2 }}
+        // whileHover={{ scale: 1.05, rotate: 2 }}
         className={`${
           index % 2 === 0 ? "order-3" : "order-1 md:order-1"
         } group relative w-56 h-56 md:w-64 md:h-64 flex-shrink-0`}
