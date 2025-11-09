@@ -1,13 +1,7 @@
 'use client'
-
-
-
-
-import React from "react";
 import { motion, easeOut } from "framer-motion";
 import { menuData } from "./menuData";
 import { MenuCategory } from "../types/MenuCategory";
-import { MenuData } from "../types/MenuData";
 import MenuItem from "./menuItem";
 
 interface MenuSectionProps {

@@ -1,7 +1,7 @@
 export type MenuCategory =
   | "sushi"
   | "hosomaki"
-  | "california"
+  | "california" 
   | "signature"
   | "entree"
   | "brochettes"

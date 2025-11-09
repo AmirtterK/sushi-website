@@ -1,4 +1,5 @@
-import { MenuCategory, MenuData } from "../types/MenuCategory";
+import { MenuCategory } from "../types/MenuCategory";
+import { MenuData } from "../types/MenuData";
 
 export const menuData: Record<MenuCategory, MenuData> = {
   sushi: {
