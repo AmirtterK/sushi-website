@@ -1,5 +1,7 @@
+"use client";
+
 import React from "react";
-import { easeOut, motion } from "framer-motion";
+import { motion, easeOut } from "framer-motion";
 import { MenuItem as MenuItemType } from "../types/MenuItem";
 
 interface MenuItemProps {
@@ -16,31 +18,27 @@ const fadeIn = {
   },
 };
 
-export default function MenuItem({
-  item,
-  index,
-  categoryImage,
-}: MenuItemProps) {
+export default function MenuItem({ item, index, categoryImage }: MenuItemProps) {
   return (
     <motion.div
       variants={fadeIn}
       initial="hidden"
       whileInView="show"
       viewport={{ once: true }}
-      className="flex items-center gap-8 flex-wrap md:flex-nowrap justify-center"
+      className="flex flex-wrap md:flex-nowrap items-center justify-center gap-8"
     >
-      {/* Left Side - Text */}
+      {/* Text Section */}
       <div
         className={`${
           index % 2 === 0 ? "order-1" : "order-1 md:order-3"
-        } text-left min-w-[280px] max-w-md flex-shrink-0`}
+        } text-left w-full md:w-auto max-w-md break-words`}
       >
         <motion.h4
-          className="text-3xl md:text-4xl mb-2 text-white uppercase tracking-widest font-bold"
+          className="text-2xl sm:text-3xl md:text-4xl mb-2 text-white uppercase tracking-widest font-bold"
           style={{
             fontFamily: "Cinzel, serif",
             fontWeight: "700",
-            letterSpacing: "0.15em",
+            letterSpacing: "0.1em",
           }}
           whileHover={{ x: 10 }}
         >
@@ -75,6 +73,7 @@ export default function MenuItem({
               <div className="w-px h-6 bg-white/20" />
             </>
           )}
+
           <div className="flex items-baseline gap-1">
             <span
               className="text-4xl md:text-5xl text-orange-500 font-bold"
@@ -101,9 +100,8 @@ export default function MenuItem({
         <div className="w-full border-t-2 border-dashed border-white/30" />
       </div>
 
-      {/* Right Side - Image */}
+      {/* Image Section */}
       <motion.div
-        // whileHover={{ scale: 1.05, rotate: 2 }}
         className={`${
           index % 2 === 0 ? "order-3" : "order-1 md:order-1"
         } group relative w-56 h-56 md:w-64 md:h-64 flex-shrink-0`}
